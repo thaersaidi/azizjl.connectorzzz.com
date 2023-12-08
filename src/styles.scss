@@ -1,0 +1,450 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+.ps .ps__scrollbar-y-rail {
+    left: 3px;
+    right: auto;
+} 
+
+:root {
+    --themecolor: #697683;
+    --themecoloralt: #1D1D35;
+    --topbar: #c3c3c3;
+    --sidebar: #697683;
+    --bodycolor: #f3f4f3;
+    --bodytext: #1D1D35;
+
+}
+*/
+
+@import './assets/scss/variable.scss';
+
+:root {
+    --themecolor: ;
+    --themecoloralt: ;
+    --topbar: ;
+    --sidebar: ;
+    --bodycolor: ;
+    --bodytext: ;
+
+}
+
+*,
+*:before,
+
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    background-color: var(--bodycolor) !important;
+    color: var(--bodytext) !important;
+
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bodycolor) !important;
+    color: var(--bodytext) !important;
+    font-family: $bodyfont;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: 1.75em !important;
+    color: var(--themecoloralt) !important;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5em !important;
+    color: var(--themecoloralt) !important;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.25em !important;
+    color: var(--themecoloralt) !important;
+    margin-bottom: 0.3em;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: 1.1em !important;
+    color: var(--themecoloralt) !important;
+    margin-bottom: 0.3em;
+    font-weight: normal;
+}
+
+p {
+    font-size: 0.9em !important;
+    color: var(--bodytext) !important;
+}
+
+
+a {
+    font-size: 1em !important;
+    color: var(--themecoloralt) !important;
+}
+
+a:hover {
+    color: var(--themecolor) !important;
+}
+
+textarea {
+    background-color: rgba($bodycolor, 0.6) !important;
+    border: 1px solid rgba($bodycolor, 0.2) !important;
+    box-shadow: inset 1px 1px 3px var(--themecolor);
+
+}
+
+textarea:focus {
+    background-color: rgba($bodycolor, 0.2) !important;
+    border: 1px solid rgba($bodycolor, 0.2) !important;
+    box-shadow: inset 1px 1px 3px var(--themecolor) !important;
+
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.left {
+    background-color: var(--sidebar) !important;
+    float: right;
+    height: 100%;
+    margin-left: -1px;
+    min-width: 256px;
+    position: fixed;
+    width: 25%;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 1px 1px 3px var(--themecolor);
+}
+
+.right {
+    float: right;
+    height: 100%;
+    position: relative;
+    width: 75%;
+    background-color: var(--bodycolor);
+    margin-right: 10px;
+    padding-top: 60px;
+}
+
+
+.name-hero {
+    background: rgba(0, 0, 0, .001);
+    bottom: 0;
+    height: 80%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 95%;
+}
+
+.me-img {
+    background-size: 100%;
+    background-position: 0px;
+    border-radius: 100%;
+    height: 150px;
+    margin: 0 auto;
+    position: relative;
+    width: 150px;
+}
+
+.name-hero h1 {
+    font-family: Open Sans, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    color: $bodytext;
+}
+
+.name-hero h1 em {
+    color: var(--bodytext);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.name-hero p {
+    color: #fff;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0 8px 0 0;
+    text-align: center;
+}
+
+.name-hero .name-text {
+    margin: 0 auto;
+    width: 85%;
+}
+
+.inner {
+    margin: 0 auto;
+    max-width: 975px;
+    padding: 3em;
+}
+
+.inner h1 {
+    font-size: 1.75em;
+}
+
+.inner p {
+    color: $bodytext;
+}
+
+.inner p em {
+    color: $bodytext;
+    font-style: normal;
+}
+
+.inner section {
+    margin: 20px auto;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: -10px;
+    padding: 0;
+}
+
+
+.skill-set {
+    background-color: var(--themecolor) !important;
+    color: rgba($bodycolor, 0.8) !important;
+    border-radius: 5px;
+    display: inline-block;
+    border: none !important;
+    list-style: none;
+    margin: 15px 15px 0 0;
+    padding: 10px !important;
+    font-size: large !important;
+    font-weight: 450 !important;
+    text-align: justify;
+    box-shadow: 1px 1px 3px var(--themecolor);
+    transition: all .2s ease-in-out;
+}
+
+.skill-set:hover {
+    background: var(--bodycolor) !important;
+    color: invert($color: var(--themecolor)) !important;
+    box-shadow: inset 1px 1px 3px var(--themecolor) !important;
+}
+
+
+
+
+.activated {
+    background-color: $sidebar !important;
+    box-shadow: none !important;
+}
+
+.scroll-top {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 2%;
+    left: 94%;
+    display: none;
+    font-size: xxx-large;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 3px #222);
+    transition: transform .2s;
+    z-index: 1000;
+    color: rgba($bodytext, 0.8);
+}
+
+
+.scroll-top:hover {
+    transform: scale(1.15);
+    transition: transform .2s;
+    color: var(--bodytext);
+}
+
+
+
+.pull-right {
+    float: right;
+}
+
+
+.dashed {
+    border-bottom: dashed 1px;
+    padding: 15px;
+}
+
+.center-vertical {
+    transform: translateY(30%);
+
+}
+
+.handmade {
+    text-align: right;
+    bottom: 2%;
+    right: 5%;
+    position: absolute;
+    z-index: 999;
+}
+
+
+.divider {
+    position: relative;
+    border-bottom: 1px solid $bodytext;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.divider:before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba($bodycolor, 0.8);
+    left: 50%;
+    margin-left: -15px;
+    top: 50%;
+    background: $bodycolor;
+    margin-top: -15px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.divider:after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 1px solid $bodytext;
+    left: 50%;
+    margin-left: -10px;
+    top: 50%;
+    background: $bodytext;
+    margin-top: -10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.margin-top {
+    margin-top: 5vh;
+}
+
+
+/* Common styles for all screen sizes */
+.handmade {
+    text-align: center;
+    margin-top: 0;
+}
+
+.scroll-top {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 2%;
+    left: 96%;
+    display: none;
+    opacity: 0.9;
+}
+
+/* Styles for screens with a maximum width of 48em (up to 768px) */
+@media screen and (max-width: 48em) {
+
+    .right,
+    .left {
+        float: none;
+        position: relative !important;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .me-img {
+        background-size: 100%;
+        background-position: 0;
+        border-radius: 100%;
+        height: 100px;
+        margin: 0 auto;
+        position: relative;
+        width: 100px;
+    }
+
+    .name-hero {
+        height: 75%;
+        margin-top: 5vh;
+    }
+
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+        left: 96%;
+        background-color: transparent;
+    }
+
+    .scroll-top i {
+        display: inline-block;
+        color: $bodytext !important;
+        transform: translateX(-30%) translateY(-30%);
+    }
+}
+
+/* (up to 1200px) */
+@media screen and (max-width: 75em) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* (up to 960px) */
+@media screen and (max-width: 60em) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 30em) {}
+
+/* iPad-sized screens (approximately) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .right {
+        width: 65%;
+    }
+}
+
+/* Clearfix styles */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+/* Styles for larger screens (min-width: 30em) */
+@media screen and (min-width: 30em) {
+    /* Add any specific styles for larger screens here */
+}
+
+/* Additional styles for .handmade on larger screens */
+@media screen and (min-width: 30em) {
+    .handmade {
+        text-align: right;
+        margin-top: 100px;
+    }
+
+    .handmade em {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 1.2em;
+    }
+}

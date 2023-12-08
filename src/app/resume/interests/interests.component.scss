@@ -1,0 +1,18 @@
+@import '../../../assets/scss/variable.scss';
+
+.interest li {
+    background: var(--bodytext);
+    border-radius: 5px;
+    color: var(--bodycolor);
+    display: inline-block;
+    list-style: none;
+    margin: 20px 20px 0 0;
+    padding: 10px;
+    text-align: justify;
+
+}
+
+.interest li:hover {
+    background: var(--themecolor);
+
+}

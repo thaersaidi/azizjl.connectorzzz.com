@@ -1,0 +1,69 @@
+<app-contact-box *ngIf="isBotMessage"></app-contact-box>
+<div class="left" *ngIf="resume">
+  <div class="name-hero" *ngIf="!email">
+    <div class="me-img">
+      <img
+        [routerLink]="['/']"
+        class="me-img"
+        style="cursor: pointer"
+        [src]="'../../assets/images/' + mainEmail + '.jpg'"
+        alt=""
+      />
+    </div>
+    <br />
+    <div class="name-text" *ngIf="resume">
+      <h1>
+        {{ resume.firstName }} <em>{{ resume.lastName }}</em>
+      </h1>
+      <blockquote class="blockquote profile-text">
+        <p>{{ resume.address }}</p>
+        <p>{{ resume.city }}, {{ resume.country }}</p>
+        <p>{{ resume.email }}</p>
+        <p>{{ resume.phone }}</p>
+      </blockquote>
+    </div>
+    <div class="divider"></div>
+    <div class="d-grid gap-2" *ngIf="mainEmail != email">
+      <button
+        type="button"
+        class="btn nav-btn"
+        *ngFor="let item of menuItems"
+        (click)="changeToMenu(item.key)"
+        [routerLink]="['/', item.key]"
+      >
+        {{ item.label }}
+      </button>
+    </div>
+  </div>
+
+  <!-- If email is present / Partners -->
+  <div class="name-hero" *ngIf="email">
+    <div class="me-img">
+      <div class="circle" [routerLink]="['/p', email]" style="cursor: pointer">
+        <span class="centered-text">{{ name_abr }}</span>
+      </div>
+    </div>
+    <br />
+    <div class="name-text" *ngIf="resume">
+      <h1>
+        {{ resume.firstName }} <em>{{ resume.lastName }}</em>
+      </h1>
+      <p>{{ resume.address }}</p>
+      <p>{{ resume.city }}, {{ resume.country }}</p>
+      <p>{{ resume.email }}</p>
+      <p>{{ resume.phone }}</p>
+    </div>
+    <div class="divider"></div>
+    <div class="d-grid gap-2">
+      <button
+        type="button"
+        class="btn nav-btn"
+        *ngFor="let item of filteredMenuItems"
+        (click)="changeToMenu(item.key)"
+        [routerLink]="['/p', email, item.key]"
+      >
+        {{ item.label }}
+      </button>
+    </div>
+  </div>
+</div>

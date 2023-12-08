@@ -1,0 +1,38 @@
+@import '../../../assets/scss/variable.scss';
+
+
+em {
+    font-style: normal;
+    font-size: medium;
+    color: var(--themecoloralt);
+    font-weight: 400;
+}
+
+.dot {
+    height: 40px;
+    width: 40px;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.black {
+    background: var(--bodytext);
+}
+
+.black:hover {
+    background: var(--themecolor);
+
+}
+
+
+@media screen and (max-width: 30em) {
+
+    .dot {
+        height: 20px;
+        width: 20px;
+        margin-bottom: 10px;
+    }
+}

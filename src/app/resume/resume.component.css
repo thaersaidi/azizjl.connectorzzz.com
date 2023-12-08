@@ -1,0 +1,86 @@
+.is-mobile .resume-toolbar {
+    position: fixed;
+    z-index: 2;
+}
+
+h1.resume-app-name {
+    margin-left: 8px;
+}
+
+.resume-sidenav-container {
+    flex: 1;
+}
+
+.is-mobile .resume-sidenav-container {
+    flex: 1 0 auto;
+}
+
+
+.transparent {
+    background-color: transparent;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    overflow: hidden;
+    /* Ensure that the text doesn't overflow the toolbar */
+
+}
+
+.header-quote {
+    white-space: nowrap;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: var(--topbar) !important;
+    z-index: 999;
+    text-align: center;
+    box-shadow: 1px 1px 3px var(--themecolor);
+    overflow: hidden;
+
+
+}
+
+.quote {
+    width: 80%;
+    right: 10%;
+}
+
+@keyframes marquee {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    to {
+        -webkit-transform: translateX(-90%);
+        transform: translateX(-90%);
+    }
+}
+
+.marquee {
+    display: inline-block;
+    padding-left: 10%;
+    padding-top: 10px;
+    -webkit-animation: marquee 30s linear infinite;
+    animation: marquee 30s linear infinite;
+    color: var(--bodycolor) !important;
+}
+
+
+@media screen and (max-width: 30em) {
+    .main {
+        padding-right: 5%;
+    }
+
+
+
+
+}
+
+@media(min-width: 768px) {}
