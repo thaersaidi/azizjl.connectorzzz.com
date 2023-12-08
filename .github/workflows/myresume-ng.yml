@@ -1,0 +1,66 @@
+name: myresume-ng
+run-name: myresume-ng-${{ github.event.inputs.job }}${{ (github.event.inputs.test == 'true') && '-ui-test' || '' }}-${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        type: choice
+        description: environment
+        required: false
+        default: deploy
+        options:
+          - deploy
+          - misc
+      test:
+        type: boolean
+        description: Run UI tests
+        required: false
+
+jobs:
+  deploy:
+    if: (always() && github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'deploy')
+    runs-on: ubuntu-latest
+    name: Deploy to Firebase Hosting
+    steps:
+      - uses: actions/checkout@v3
+      # Build in the specific directory
+      - run: npm ci && npm run build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+      # Move the necessary files/folders to the root (or specific paths the action expects)
+      - run: cp robots.txt ./dist/
+      - run: cp sitemap.xml ./dist/
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SECRET_SITE_GENERATOR }}'
+          projectId: site-generator-ng
+          channelId: live
+
+  test:
+    needs: deploy
+    if: (always() && github.event_name == 'workflow_dispatch' && github.event.inputs.test == 'true'  && github.event.inputs.job == 'misc')
+    runs-on: ubuntu-latest
+    name: Test Job
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+          cache-dependency-path: myresume-ng/package-lock.json
+
+      - name: Install dependencies
+        run: cd myresume-ng && npm ci
+      - name: Install Playwright Browsers
+        run: cd myresume-ng && npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: cd myresume-ng && npx playwright test --timeout 60000
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
